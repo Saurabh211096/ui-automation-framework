@@ -9,20 +9,29 @@ import org.testng.annotations.BeforeMethod;
 
 public class BaseTest {
 
-	protected WebDriver driver;
+//	protected WebDriver driver;
+	private static ThreadLocal<WebDriver> threadLocalDriver = new ThreadLocal<>();
 	
-	@BeforeMethod
+	@BeforeMethod(alwaysRun = true)
 	public void setupBrowser() {
-		System.out.println("BaseTest: Opening Chrome Browser...");
-		driver = new ChromeDriver();
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+		System.out.println("Thread ID: " + Thread.currentThread().getId()
+				+ " - Opening Browser");
+		threadLocalDriver.set(new ChromeDriver());
+		getDriver().manage().window().maximize();
+		getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 	}
-	@AfterMethod
+	
+	public WebDriver getDriver() {
+		return threadLocalDriver.get();
+	}
+	
+	@AfterMethod(alwaysRun = true)
 	public void teardownBrowser() {
-		System.out.println("BaseTest: Closing Browser...");
-		if (driver != null) {
-			driver.quit();
+		System.out.println("Thread ID: " + Thread.currentThread().getId()
+				+ " - Closing Browser");
+		if (getDriver() != null) {
+			getDriver().quit();
+			threadLocalDriver.remove();
 		}
 	}
 	
