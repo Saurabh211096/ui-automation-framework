@@ -11,8 +11,8 @@ public class Day5_TestNGAssertionsTest extends BaseTest {
 	@Test
 	public void testHardAssertion() {
 		System.out.println("Starting Hard Assertion Test...");
-		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
-		String actualTitle = driver.getTitle();
+		getDriver().get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+		String actualTitle = getDriver().getTitle();
 		String expectedTitle = "OrangeHRM";
 		Assert.assertEquals(actualTitle, expectedTitle, "Page title did"
 				+ " not match!");
@@ -21,7 +21,7 @@ public class Day5_TestNGAssertionsTest extends BaseTest {
 	@Test
 	public void testSoftAssertion() {
 		System.out.println("Starting Soft Assertion Test...");
-		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+		getDriver().get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
 		SoftAssert softAssert = new SoftAssert();
 		System.out.println("Running failing soft assertion...");
 		softAssert.assertEquals("Orange", "Apple", "Fruits do not match!");

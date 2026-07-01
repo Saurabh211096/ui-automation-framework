@@ -4,11 +4,11 @@
 <!-- MAGIC PARALLEL SWITCHES! -->
 <!-- parallel="methods" tells it to run @Tests at the same time -->
 <!-- thread-count="3" tells it to use 3 simultaneous CPU workers -->
-<suite name="Parallel Automation Suite" parallel="methods" thread-count="3">
+<suite name="Parallel DataProvider Suite" parallel="methods" thread-count="10" data-provider-thread-count="10">
 
-	<test name="All Parallel Tests">
+	<test name="Data Driven Tests">
 		<classes>
-			<class name="com.bootcamp.tests.Day6_ParallelTest"/>
+			<class name="com.bootcamp.tests.Day65_DataProviderTest"/>
 		</classes>
 	</test>
 
