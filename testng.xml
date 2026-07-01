@@ -3,12 +3,32 @@
 
 <!-- MAGIC PARALLEL SWITCHES! -->
 <!-- parallel="methods" tells it to run @Tests at the same time -->
-<!-- thread-count="3" tells it to use 3 simultaneous CPU workers -->
-<suite name="Parallel DataProvider Suite" parallel="methods" thread-count="10" data-provider-thread-count="10">
+<!-- If we set parallel="tests" (not methods!). This means it will 
+run the 3 <test> blocks below simultaneously -->
+<!-- thread-count="3" or "10" tells it to use 3/10 simultaneous CPU workers -->
+<suite name="Cross Browser Suite" parallel="tests" thread-count="3">
 
-	<test name="Data Driven Tests">
+	<!-- TEST BLOCK 1: Chrome -->
+	<test name="Chrome Test Execution">
+		<parameter name="browser" value="chrome"/>
 		<classes>
-			<class name="com.bootcamp.tests.Day65_DataProviderTest"/>
+			<class name="com.bootcamp.tests.Day6_ParallelTest"/>
+		</classes>
+	</test>
+	
+	<!-- TEST BLOCK 2: Firefox -->
+	<test name="Firefox Test Execution">
+		<parameter name="browser" value="firefox"/>
+		<classes>
+			<class name="com.bootcamp.tests.Day6_ParallelTest"/>
+		</classes>
+	</test>
+	
+	<!-- TEST BLOCK 3: Edge -->
+	<test name="Edge Test Execution">
+		<parameter name="browser" value="edge"/>
+		<classes>
+			<class name="com.bootcamp.tests.Day6_ParallelTest"/>
 		</classes>
 	</test>
 

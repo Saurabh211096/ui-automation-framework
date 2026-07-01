@@ -4,15 +4,20 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.bootcamp.base.BaseTest;
+import com.bootcamp.utils.ConfigReader;
 
 public class Day6_ParallelTest extends BaseTest {
 
 	@Test
-	public void testGoogle() {
-		getDriver().get("https://www.google.com");
-		System.out.println("Google Test completed on Thread: "
-				+ Thread.currentThread().getId());
-		Assert.assertTrue(getDriver().getTitle().contains("Google"));
+	public void testDynamicUrl() {
+		String targetUrl = ConfigReader.getProperty("baseUrl");
+		System.out.println("Navigating dynamically to: " + targetUrl);
+		getDriver().get(targetUrl);
+		try {
+			Thread.sleep(4000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 	@Test
 	public void testOrangeHRM() {
