@@ -14,7 +14,7 @@ public class Day8_ModernDOMTest extends BaseTest {
 		System.out.println("--- Testing Shadow DOM ---");
 		getDriver().get("https://the-internet.herokuapp.com/shadowdom");
 		WebElement shadowHost = getDriver().findElement(By.xpath("//my-paragraph[1]"));
-		SearchContext shadowRoot = shadowHost.getShadowRoot();
+//		//SearchContext shadowRoot = shadowHost.getShadowRoot();
 		WebElement hiddenText = shadowHost.findElement(By.cssSelector("span"));
 		System.out.println("Successfully pierced the Shadow DOM! The text inside is: "
 				+ hiddenText.getText());

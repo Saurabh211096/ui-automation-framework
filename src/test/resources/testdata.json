@@ -1,0 +1,27 @@
+[
+  {
+    "username": "admin_user",
+    "password": "ValidPass123!",
+    "isValid": "true"
+  },
+  {
+    "username": "locked_user",
+    "password": "LockedPass123!",
+    "isValid": "false"
+  },
+  {
+    "username": "guest_user",
+    "password": "GuestPass123!",
+    "isValid": "true"
+  },
+  {
+    "username": "standard_user",
+    "password": "StdPass123!",
+    "isValid": "true"
+  },
+  {
+    "username": "invalid_user",
+    "password": "WrongPassword!",
+    "isValid": "false"
+  }
+]
