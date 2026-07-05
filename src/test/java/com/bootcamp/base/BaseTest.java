@@ -12,10 +12,14 @@ import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
 import com.bootcamp.utils.ConfigReader;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 
 public class BaseTest {
 	
 	private static ThreadLocal<WebDriver> threadLocalDriver = new ThreadLocal<>();
+	protected Logger log = LogManager.getLogger(this.getClass());
 	
 	@BeforeMethod(alwaysRun = true)
 	@Parameters("browser")
@@ -25,7 +29,7 @@ public class BaseTest {
 		} else if (browser == null) {
 			browser = ConfigReader.getProperty("browser");
 		}
-		System.out.println("Thread " + Thread.currentThread().getId() 
+		log.info("Thread " + Thread.currentThread().getId() 
 				+ " - Initializing: " + browser);
 		
 		browser = browser.toLowerCase();
@@ -40,7 +44,7 @@ public class BaseTest {
 			threadLocalDriver.set(new EdgeDriver());
 			break;
 		default:
-			System.out.println("Invalid browser passed: " + browser 
+			log.info("Invalid browser passed: " + browser 
 					+ ". Defaulting to Chrome");
 			threadLocalDriver.set(new ChromeDriver());
 			break;

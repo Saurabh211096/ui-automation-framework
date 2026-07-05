@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    
+    <!-- We define WHERE the logs go (Appenders) -->
+    <Appenders>
+        
+        <!-- 1. Print to the Eclipse/Git Bash Console -->
+        <Console name="ConsoleLogger" target="SYSTEM_OUT">
+            <!-- The Pattern determines how the log looks: [Time] [Level] - Message -->
+            <PatternLayout pattern="[%d{HH:mm:ss}] [%-5level] - %msg%n"/>
+        </Console>
+        
+        <!-- 2. Save to a physical file in the target folder! -->
+        <File name="FileLogger" fileName="target/logs/automation.log" append="false">
+            <PatternLayout pattern="[%d{yyyy-MM-dd HH:mm:ss}] [%-5level] [%c{1}] - %msg%n"/>
+        </File>
+        
+    </Appenders>
+
+    <!-- We define WHICH Appenders to activate -->
+    <Loggers>
+        <!-- Root level="info" means it will print info, warn, and error, but hide trace/debug -->
+        <Root level="info">
+            <AppenderRef ref="ConsoleLogger"/>
+            <AppenderRef ref="FileLogger"/>
+        </Root>
+    </Loggers>
+    
+</Configuration>
