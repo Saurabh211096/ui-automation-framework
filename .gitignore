@@ -4,3 +4,5 @@ target/
 .project
 test-output/
 *.log
+.allure/
+allure-results/

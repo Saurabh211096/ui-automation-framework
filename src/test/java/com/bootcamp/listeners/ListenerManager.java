@@ -13,17 +13,20 @@ import org.testng.ITestListener;
 import org.testng.ITestResult;
 
 import com.bootcamp.base.BaseTest;
+import io.qameta.allure.Attachment;
 
 public class ListenerManager implements ITestListener {
 
 	@Override
 	public void onTestStart(ITestResult result) {
-		System.out.println("*** LISTENER: Test Started -> " + result.getMethod().getMethodName());
+		System.out.println("*** LISTENER: Test Started -> " 
+	+ result.getMethod().getMethodName());
 	}
 
 	@Override
 	public void onTestSuccess(ITestResult result) {
-		System.out.println("*** LISTENER: Test Passed -> " + result.getMethod().getMethodName());
+		System.out.println("*** LISTENER: Test Passed -> " 
+	+ result.getMethod().getMethodName());
 	}
 
 	@Override
@@ -33,16 +36,23 @@ public class ListenerManager implements ITestListener {
 			Object testClass = result.getInstance();
 			WebDriver driver = ((BaseTest) testClass).getDriver();
 
-			String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+			String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss")
+					.format(new Date());
 			String testName = result.getMethod().getMethodName();
 			String fileName = testName + "_" + timestamp;
 
-			File sourceScreenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 			File destinationPath = new File(
-					System.getProperty("user.dir") + "/target/screenshots/" + fileName + ".png");
+					System.getProperty("user.dir") 
+					+ "/target/screenshots/" + fileName + ".png");
 			destinationPath.getParentFile().mkdirs();
+			File sourceScreenshot = ((TakesScreenshot) driver)
+					.getScreenshotAs(OutputType.FILE);
 			FileHandler.copy(sourceScreenshot, destinationPath);
-			String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+//			String base64Screenshot = ((TakesScreenshot) driver)
+//					.getScreenshotAs(OutputType.BASE64);
+//			if (driver != null) {
+//				attachScreenshotToAllure(driver);
+//			}
 
 			System.out.println("*** LISTENER: Screenshot saved at: " + destinationPath.getAbsolutePath());
 		} catch (IOException e) {
@@ -50,5 +60,10 @@ public class ListenerManager implements ITestListener {
 			e.printStackTrace();
 		}
 	}
+	
+//	@Attachment(value = "Failure Screenshot", type = "image/png")
+//	public byte[] attachScreenshotToAllure(WebDriver driver) {
+//		return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+//	}
 
 }
