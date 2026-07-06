@@ -11,7 +11,7 @@ import com.bootcamp.pages.AdminPage;
 import com.bootcamp.pages.DashboardPage;
 import com.bootcamp.pages.LoginPage;
 
-//@Listeners(com.bootcamp.listeners.ListenerManager.class)
+@Listeners(com.bootcamp.listeners.ListenerManager.class)
 public class Day4_FullPOMTest extends BaseTest {
 
 	@Test
