@@ -4,7 +4,8 @@ import java.io.FileInputStream;
 import java.util.Properties;
 
 public class ConfigReader {
-	// THIS IS THE MAIN BRANCH COMMENT
+// THIS IS THE MAIN BRANCH COMMENT
+	// THIS IS THE FEATURE BRANCH COMMENT
 	private static Properties properties;
 	
 //	static {
