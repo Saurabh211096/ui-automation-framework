@@ -24,6 +24,8 @@ public class Day6_ParallelTest extends BaseTest {
 		getDriver().get("https://opensource-demo.orangehrmlive.com/");
 		System.out.println("OrangeHRM Test completed on Thread: " 
 				+ Thread.currentThread().getId());
+		try {Thread.sleep(5000);} catch (InterruptedException e) {
+			e.printStackTrace();}
 		Assert.assertTrue(getDriver().getTitle().contains("OrangeHRM"));
 	}
 	@Test

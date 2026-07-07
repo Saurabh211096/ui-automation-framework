@@ -1,0 +1,40 @@
+# The name of our pipeline
+name: Automated UI Tests
+
+# 1. When should this robot run? 
+on:
+  push:
+    branches: [ "main" ] # Runs every time code is pushed to main
+  workflow_dispatch: # Adds a manual "Run Workflow" button in GitHub!
+
+# 2. What should the robot do?
+jobs:
+  test-execution:
+    # Give the robot a free Ubuntu Linux computer
+    runs-on: ubuntu-latest
+
+    steps:
+    # Step A: Download our code from GitHub onto the Linux machine
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    # Step B: Install Java 17 on the Linux machine
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        cache: maven
+
+    # Step C: Run our framework! 
+    # Notice we use -Dheadless=true because this Linux machine HAS NO MONITOR!
+    - name: Run Maven Tests
+      run: mvn clean test -Dheadless=true
+
+    # Step D: Save our ExtentReport so we can download it after it finishes
+    - name: Upload ExtentReport Artifact
+      if: always() # This ensures it uploads the report EVEN IF the tests fail!
+      uses: actions/upload-artifact@v4
+      with:
+        name: Automation-Report
+        path: target/ExtentReport.html
