@@ -8,6 +8,10 @@ run the 3 <test> blocks below simultaneously -->
 <!-- thread-count="3" or "10" tells it to use 3/10 simultaneous CPU workers -->
 <suite name="Data Driven Suite">
 
+	<listeners>
+		<listener class-name="com.bootcamp.listeners.ListenerManager"/>
+	</listeners>
+
 	<test name="Excel Execution">
 		<parameter name="browser" value="chrome"/>
 		<classes>
