@@ -18,6 +18,7 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.bootcamp.base.BaseTest;
 import com.bootcamp.utils.ExtentManager;
+import com.bootcamp.utils.SlackNotifier;
 
 import io.qameta.allure.Attachment;
 
@@ -74,6 +75,29 @@ public class ListenerManager implements ITestListener {
 		extent.flush();
 		System.out.println("*** LISTENER: Test Suite Finished."
 				+ " ExtentReport Generated! ***");
-		
+		// 1. Retrieve the results counts from TestNG's execution context
+				int passed = context.getPassedTests().size();
+				int failed = context.getFailedTests().size();
+				int skipped = context.getSkippedTests().size();
+				int total = passed + failed + skipped;
+				
+				// 2. Format a clean message block with Slack emojis (use double escape \\n for newlines in JSON)
+				String message = String.format(
+					"🚀 *Automation Suite Execution Summary* 🚀\\n" +
+					"*Suite Name:* %s\\n" +
+					"*Total Executed:* %d\\n" +
+					"*Passed:* %d ✅\\n" +
+					"*Failed:* %d ❌\\n" +
+					"*Skipped:* %d ⚠️\\n" +
+					"*Status:* %s",
+					context.getSuite().getName(),
+					total,
+					passed,
+					failed,
+					skipped,
+					(failed > 0) ? "FAILED 🔴" : "PASSED 🟢"
+				);
+				// 3. Dispatch the message to Slack
+				SlackNotifier.sendNotification(message);
 	}
 }

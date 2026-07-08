@@ -14,15 +14,12 @@
 - [x] Day 11: Allure Reporting
 - [x] Day 12: ExtentReports (Classic Enterprise Reporting)
 - [x] Day 13: Git Branching, Conflicts & Collaboration Simulation
-- [/] Day 14: GitHub Actions CI/CD & Automated Mobile Emulation
-  - [ ] Session 1: Learn Selenium Grid 4 Architecture (Hub-Node model, diagram, comparison to BrowserStack).
-  - [ ] Session 2: Understand headless Chrome and Mobile Emulation via ChromeOptions (simulating iPhone viewport in code).
-  - [ ] Session 3: Create `.github/workflows/ui-tests.yml` (Ubuntu, Java 17, Maven).
-  - [ ] Session 4: Trigger pipeline execution via GitHub webhooks and debug common headless display/path issues using build logs.
-  - [ ] Session 5: Verify pipeline execution, capture downloadable report artifacts, and integrate status badge into `README.md`.
-  - [ ] Session 6: Sign up for BrowserStack free trial, integrate cloud grid via RemoteWebDriver, and push pipeline config.
-  - [ ] Session 7: Set up Slack Webhook Integration and write `SlackNotifier.java` utility to send TestNG execution summaries to Slack via REST API.
-- [ ] Day 15: Basic SQL & Database Validation
+- [x] Day 14: GitHub Actions CI/CD & Automated Mobile Emulation
+- [/] Day 15: Basic SQL & Database Validation
+  - [ ] Session 1: Initialize a local database instance using MySQL or a quick containerized Docker SQL workspace to build an independent test environment.
+  - [ ] Session 2: Practice and Master core relational database syntax by executing structured queries using SELECT, WHERE filtering, INSERT mutations, UPDATE modifications, and data constraints.
+  - [ ] Session 3: Perform relational multi-table analysis using INNER JOIN and LEFT JOIN structures to isolate backend data dependencies across enterprise tables.
+  - [ ] Session 4: Build an automated end-to-end regression workflow by establishing a secure JDBC connection, handling user creation via UI, querying the database using a thread-safe try-with-resources statement to prevent resource leaks, and asserting values before pushing code.
 - [ ] Day 16: Playwright Introduction & TypeScript
 - [ ] Day 17: Playwright POM, Progressive Overload, Visual & Performance Metrics
 - [ ] Day 18: Playwright API Interception, Network Mocking & Accessibility
