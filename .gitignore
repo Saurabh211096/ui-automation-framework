@@ -6,3 +6,4 @@ test-output/
 *.log
 .allure/
 allure-results/
+selenium-server.jar

@@ -1,11 +1,14 @@
 package com.bootcamp.base;
 
 import java.io.ByteArrayInputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -13,6 +16,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -49,6 +53,8 @@ public class BaseTest {
 			if (isHeadless) {
 				chromeOptions.addArguments("--headless=new");
 				chromeOptions.addArguments("--window-size=1920,1080");
+				chromeOptions.addArguments("--disable-gpu");
+				chromeOptions.addArguments("--window-position=-2400,-2400");
 			}
 			threadLocalDriver.set(new ChromeDriver(chromeOptions));
 			break;
@@ -69,6 +75,38 @@ public class BaseTest {
 		case "edge":
 			threadLocalDriver.set(new EdgeDriver());
 			break;
+		case "browserstack":
+			String bsUsername = "your_username";
+			String bsAccessKey = "your_access_key";
+			String gridUrl = "https://" + bsUsername + ":" 
+			+ bsAccessKey + "@hub-cloud.browserstack.com/wd/hub";
+			MutableCapabilities capabilities = new MutableCapabilities();
+			capabilities.setCapability("browserName", "Safari");
+			capabilities.setCapability("browserVersion", "latest");
+			HashMap<String, Object> bstackOptions = new HashMap<>();
+			bstackOptions.put("os", "OS X");
+			bstackOptions.put("osVersion", "Ventura");
+			bstackOptions.put("buildName", "Bootcamp Execution");
+			try {
+				threadLocalDriver
+				.set(new RemoteWebDriver(new URL(gridUrl), capabilities));				
+			} catch (MalformedURLException e) {
+				e.printStackTrace();
+			}
+			break;
+		case "grid":
+			ChromeOptions gridOptions = new ChromeOptions();
+			if (isHeadless) {
+				gridOptions.addArguments("--headless=new");
+				gridOptions.addArguments("--window-size=1920,1080");
+			}
+			try {
+				threadLocalDriver.set(new RemoteWebDriver(new 
+						URL("http://localhost:4444"), gridOptions));
+			} catch (MalformedURLException e) {
+				log.error("Invalid local Grid URL", e);
+				e.printStackTrace();
+			}
 		default:
 			threadLocalDriver.set(new ChromeDriver());
 			break;

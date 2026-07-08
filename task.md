@@ -1,0 +1,38 @@
+# Automation Testing Bootcamp Checklist
+
+- [x] Day 1: Manual Test Writing + Java Revision + Selenium Setup
+- [x] Day 2: Locators Deep Dive – Simple to Complex
+- [x] Day 3: Waits and Synchronization
+- [x] Day 4: Page Object Model (POM) & Architecture
+- [x] Day 5: TestNG Framework Base & Assertions
+- [x] Day 6: TestNG Advanced + Parallel Execution
+- [x] Day 6.5: Parallel Execution - The Foundation
+- [x] Day 7: Cross-Browser Testing & Multi-Environment Config
+- [x] Day 8: Handling Complex UI Elements & Modern DOM
+- [x] Day 9: Data-Driven Testing (JSON + Deep Excel)
+- [x] Day 10: Screenshots, Logging & Listeners
+- [x] Day 11: Allure Reporting
+- [x] Day 12: ExtentReports (Classic Enterprise Reporting)
+- [x] Day 13: Git Branching, Conflicts & Collaboration Simulation
+- [/] Day 14: GitHub Actions CI/CD & Automated Mobile Emulation
+  - [ ] Session 1: Learn Selenium Grid 4 Architecture (Hub-Node model, diagram, comparison to BrowserStack).
+  - [ ] Session 2: Understand headless Chrome and Mobile Emulation via ChromeOptions (simulating iPhone viewport in code).
+  - [ ] Session 3: Create `.github/workflows/ui-tests.yml` (Ubuntu, Java 17, Maven).
+  - [ ] Session 4: Trigger pipeline execution via GitHub webhooks and debug common headless display/path issues using build logs.
+  - [ ] Session 5: Verify pipeline execution, capture downloadable report artifacts, and integrate status badge into `README.md`.
+  - [ ] Session 6: Sign up for BrowserStack free trial, integrate cloud grid via RemoteWebDriver, and push pipeline config.
+  - [ ] Session 7: Set up Slack Webhook Integration and write `SlackNotifier.java` utility to send TestNG execution summaries to Slack via REST API.
+- [ ] Day 15: Basic SQL & Database Validation
+- [ ] Day 16: Playwright Introduction & TypeScript
+- [ ] Day 17: Playwright POM, Progressive Overload, Visual & Performance Metrics
+- [ ] Day 18: Playwright API Interception, Network Mocking & Accessibility
+- [ ] Day 19: CI/CD for Playwright (Azure DevOps + GitHub Actions)
+- [ ] Day 20: Cucumber BDD Framework
+- [ ] Day 21: Test Data Cleanup & Independence
+- [ ] Day 22: Retry Mechanisms & Quarantine
+- [ ] Day 23: End-to-End Enterprise Scenario & Test Case Tracking
+- [ ] Day 24: Test Management (Jira + Zephyr Scale) & Tracking
+- [ ] Day 25: Analyzing Trends, Stakeholder Communication & Performance Validation
+- [ ] Day 26: CI/CD, Selenium Grid & Docker Containerization
+- [ ] Day 27: LinkedIn, Job Applications & QA Process Documentation
+- [ ] Day 28: Mock Interview & Final Polish
