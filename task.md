@@ -15,12 +15,12 @@
 - [x] Day 12: ExtentReports (Classic Enterprise Reporting)
 - [x] Day 13: Git Branching, Conflicts & Collaboration Simulation
 - [x] Day 14: GitHub Actions CI/CD & Automated Mobile Emulation
-- [/] Day 15: Basic SQL & Database Validation
-  - [ ] Session 1: Initialize a local database instance using MySQL or a quick containerized Docker SQL workspace to build an independent test environment.
-  - [ ] Session 2: Practice and Master core relational database syntax by executing structured queries using SELECT, WHERE filtering, INSERT mutations, UPDATE modifications, and data constraints.
-  - [ ] Session 3: Perform relational multi-table analysis using INNER JOIN and LEFT JOIN structures to isolate backend data dependencies across enterprise tables.
-  - [ ] Session 4: Build an automated end-to-end regression workflow by establishing a secure JDBC connection, handling user creation via UI, querying the database using a thread-safe try-with-resources statement to prevent resource leaks, and asserting values before pushing code.
+- [x] Day 15: Basic SQL & Database Validation
 - [ ] Day 16: Playwright Introduction & TypeScript
+  - [ ] Session 1: Set up the Node.js runtime environment, initialize Playwright using npm, and study the scaffolded workspace architecture including directories like tests/ and playwright.config.ts.
+  - [ ] Session 2: Learn and Master modern asynchronous TypeScript fundamentals focusing on variable scoping, contract interfaces, strong data types, and handling microtask execution flows via async/await.
+  - [ ] Session 3: Script your initial automated end-to-end user scenario handling page navigation, credential input fields, and page title assertions.
+  - [ ] Session 4: Execute test suites via the CLI, analyze runtime advantages over legacy architectures (Selenium), like built-in auto-waiting, interact with the interactive Playwright Trace Viewer. Push.
 - [ ] Day 17: Playwright POM, Progressive Overload, Visual & Performance Metrics
 - [ ] Day 18: Playwright API Interception, Network Mocking & Accessibility
 - [ ] Day 19: CI/CD for Playwright (Azure DevOps + GitHub Actions)
